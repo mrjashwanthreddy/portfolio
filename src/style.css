@@ -88,9 +88,9 @@ p { color: var(--muted); }
 /* projects */
 .section-card { background: var(--page); border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.08); padding: 32px; }
 .projects-list { display: grid; gap: 20px; }
-.project-card { display: grid; grid-template-columns: 1.1fr 1fr; align-items: center; background: #fff; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
-.project-card.reverse { grid-template-columns: 1fr 1.1fr; }
-.project-media { background: #f3f4f8; min-height: 160px; }
+.project-card { display: grid; grid-template-columns: 1fr 300px; align-items: stretch; background: #fff; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+.project-card.reverse { grid-template-columns: 300px 1fr; }
+.project-media { background: #f3f4f8; min-height: 200px; width: 100%; }
 .project-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .project-content { padding: 20px; }
 .project-title { margin: 0 0 8px; font-size: 18px; }
