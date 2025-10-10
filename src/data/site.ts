@@ -7,7 +7,7 @@ export const profile = {
   title: 'Software Engineer • Java / Spring Boot',
   bio: 'Software Engineer with 3+ years building Java, Spring Boot, and microservice back-end systems on AWS. Passionate about automation, containerization, and cloud best practices.',
   location: 'Hyderabad, India',
-  resumeUrl: '/resume.pdf',
+  resumeUrl: '/Jashwanth_Reddy_Karumudi_Java_Developer_JSB.pdf',
 }
 
 export const links: Link[] = [
