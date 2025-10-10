@@ -18,31 +18,35 @@ export const links: Link[] = [
 
 export const projects: Project[] = [
   {
+    title: 'Payment Service Module',
+    description: [
+      'Migrated on-premise applications to AWS improving scalability by 35%.',
+      'Implemented EC2 to S3 workflows with MFT integration for external systems using shell scripting.',
+      'Completed Spring Boot enterprise training and delivered POC applications that demonstrate back-end skills.'
+    ],
+    tags: ['Java', 'Spring Boot', 'AWS', 'Shell'],
+  },
+  {
+    title: 'IMAGINE – CONSUMER (OneSQ)',
+    description: [
+      'Developed microservice to retrieve service qualification data from multiple telecom wholesalers.',
+      'Replaced legacy SOAP with REST, improving performance by 35%.',
+      'Achieved 99.9% production up-time using robust monitoring and fault tolerance.',
+      'Led the development of OneSQ as the sole developer, improving the accuracy of service qualification by 15%.',
+      'Reduced customer escalations by 40% through geocoding-based address validation using secure code practices.',
+      'Improved response times by 30% using REST APIs and multithreading for service optimization.'
+    ],
+    tags: ['Java', 'Spring Boot', 'REST', 'Monitoring', 'Fault Tolerance', 'Multithreading', 'AWS'],
+  },
+  {
     title: 'E‑Commerce Microservices Platform',
     description: [
       'Distributed e‑commerce with 4+ microservices using Java 17, Spring Boot 3.5',
       'Spring Cloud (Gateway, Eureka, Config), Zipkin tracing',
       'Dockerized and orchestrated with Kubernetes'
     ],
-    tags: ['Java', 'Spring Boot', 'Spring Cloud', 'Docker', 'Kubernetes', 'Zipkin'],
-  },
-  {
-    title: 'IMAGINE – CONSUMER (OneSQ)',
-    description: [
-      'Telecom service qualification microservice; replaced SOAP with REST (+35% perf)',
-      '99.9% uptime via monitoring & fault tolerance',
-      '+15% accuracy with geocoding validation'
-    ],
-    tags: ['Java', 'Spring Boot', 'REST', 'Monitoring'],
-  },
-  {
-    title: 'Payment Service Module',
-    description: [
-      'Modernized legacy workloads, migrated to AWS (+35% scalability)',
-      'Automated EC2⇄S3 workflows with MFT and shell scripting'
-    ],
-    tags: ['Java', 'Spring Boot', 'AWS', 'Shell'],
-  },
+    tags: ['Java', 'Spring Boot', 'Spring Cloud', 'Docker', 'Kubernetes', 'Zipkin', 'Redis', 'Prometheus', 'Grafana', 'Kafka'],
+  }
 ]
 
 export const experience: Experience[] = [
