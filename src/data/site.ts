@@ -1,5 +1,5 @@
 export type Link = { label: string; href: string }
-export type Project = { title: string; description: string; tags: string[]; href?: string }
+export type Project = { title: string; description: string[]; tags: string[]; href?: string }
 export type Experience = { company: string; role: string; period: string; summary: string; links?: Link[] }
 
 export const profile = {
@@ -19,17 +19,28 @@ export const links: Link[] = [
 export const projects: Project[] = [
   {
     title: 'E‑Commerce Microservices Platform',
-    description: 'Distributed e‑commerce with 4+ microservices using Java 17, Spring Boot 3.5, Spring Cloud (Gateway, Eureka, Config), Zipkin tracing. Dockerized and orchestrated with Kubernetes.',
+    description: [
+      'Distributed e‑commerce with 4+ microservices using Java 17, Spring Boot 3.5',
+      'Spring Cloud (Gateway, Eureka, Config), Zipkin tracing',
+      'Dockerized and orchestrated with Kubernetes'
+    ],
     tags: ['Java', 'Spring Boot', 'Spring Cloud', 'Docker', 'Kubernetes', 'Zipkin'],
   },
   {
     title: 'IMAGINE – CONSUMER (OneSQ)',
-    description: 'Telecom service qualification microservice; replaced SOAP with REST (+35% perf), 99.9% uptime via monitoring & fault tolerance, +15% accuracy with geocoding validation.',
+    description: [
+      'Telecom service qualification microservice; replaced SOAP with REST (+35% perf)',
+      '99.9% uptime via monitoring & fault tolerance',
+      '+15% accuracy with geocoding validation'
+    ],
     tags: ['Java', 'Spring Boot', 'REST', 'Monitoring'],
   },
   {
     title: 'Payment Service Module',
-    description: 'Modernized legacy workloads, migrated to AWS (+35% scalability) and automated EC2⇄S3 workflows with MFT and shell scripting.',
+    description: [
+      'Modernized legacy workloads, migrated to AWS (+35% scalability)',
+      'Automated EC2⇄S3 workflows with MFT and shell scripting'
+    ],
     tags: ['Java', 'Spring Boot', 'AWS', 'Shell'],
   },
 ]
