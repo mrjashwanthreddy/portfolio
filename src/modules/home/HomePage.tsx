@@ -10,7 +10,7 @@ export function HomePage() {
           <p>Java Developer with 3+ years of experience in Java, Spring Boot, Microservice software and back-end development, seeking full-time back-end roles to design and build high-performing scalable applications using automation,
           containerization, and cloud best practices.</p>
           <div className="hero-actions">
-            <a className="btn btn-primary" href="/projects">Projects</a>
+            <a className="btn btn-outline btn-hover-brand" href="/projects">Projects</a>
             {links.find(l => l.label.toLowerCase()==='github') && (
               <a className="btn btn-outline" href={links.find(l => l.label.toLowerCase()==='github')!.href} target="_blank" rel="noreferrer">GitHub</a>
             )}

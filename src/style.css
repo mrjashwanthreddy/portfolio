@@ -57,12 +57,13 @@ p { color: var(--muted); }
   align-items: center;
   padding: 48px 24px 24px;
 }
-.hero-eyebrow { color: var(--brand-strong); font-weight: 700; font-size: 12px; letter-spacing: 0.12em; }
+.hero-eyebrow { color: var(--brand-strong); font-weight: 700; font-size: 18px; letter-spacing: 0.12em; }
 .hero-actions { display: flex; gap: 12px; margin-top: 20px; flex-wrap: wrap; }
 
-.btn { display: inline-flex; align-items: center; justify-content: center; height: 36px; padding: 0 14px; border-radius: 8px; border: 1px solid transparent; font-weight: 600; cursor: pointer; }
+.btn { display: inline-flex; align-items: center; justify-content: center; height: 36px; padding: 0 14px; border-radius: 8px; border: 1px solid transparent; font-weight: 600; cursor: pointer; transition: background-color .2s ease, color .2s ease, border-color .2s ease; }
 .btn-primary { background: var(--brand); color: #1a1400; border-color: var(--brand-strong); }
 .btn-outline { background: transparent; color: var(--text); border-color: var(--border); }
+.btn-hover-brand:hover { background: var(--brand); color: #1a1400; border-color: var(--brand-strong); }
 .btn:focus-visible { outline: 3px solid var(--brand-strong); outline-offset: 2px; }
 
 .hero-visual { position: relative; min-height: 320px; }
