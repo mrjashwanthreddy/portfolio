@@ -1,13 +1,14 @@
-import { links, profile } from '../../data/site'
+import { links } from '../../data/site'
 
 export function HomePage() {
   return (
     <section className="card-shell">
       <div className="hero">
         <div>
-          <div className="hero-eyebrow">UI/UX DESIGNER</div>
-          <h1>Hello, my name is {profile.name.split(' ')[0]}<br />is {profile.name.split(' ').slice(1).join(' ')}</h1>
-          <p>Short text with details about you, what you do or your professional career. You can add more information on the about page.</p>
+          <div className="hero-eyebrow">Java Developer</div>
+          <h1>Hello, I'm a<br />Software Engineer</h1>
+          <p>With 3+ years of experience in Java, Spring Boot, Microservice software and back-end development, seeking full-time back-end roles to design and build high-performing scalable applications using automation,
+          containerization, and cloud best practices.</p>
           <div className="hero-actions">
             <a className="btn btn-primary" href="/projects">Projects</a>
             {links.find(l => l.label.toLowerCase()==='linkedin') && (
