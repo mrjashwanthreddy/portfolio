@@ -17,9 +17,9 @@ export function HomePage() {
             {links.find(l => l.label.toLowerCase()==='linkedin') && (
               <a className="btn btn-outline" href={links.find(l => l.label.toLowerCase()==='linkedin')!.href} target="_blank" rel="noreferrer">LinkedIn</a>
             )}
-            {links.find(l => l.href.startsWith('mailto:')) && (
+            {/* {links.find(l => l.href.startsWith('mailto:')) && (
               <a className="btn btn-outline" href={links.find(l => l.href.startsWith('mailto:'))!.href}>Email</a>
-            )}
+            )} */}
           </div>
         </div>
         <div className="hero-visual">

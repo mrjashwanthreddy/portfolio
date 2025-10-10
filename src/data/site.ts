@@ -1,6 +1,6 @@
 export type Link = { label: string; href: string }
 export type Project = { title: string; description: string[]; tags: string[]; href?: string }
-export type Experience = { company: string; role: string; period: string; summary: string; links?: Link[] }
+export type Experience = { company: string; role: string; period: string; summary: string | string[]; links?: Link[] }
 
 export const profile = {
   name: 'Jashwanth Reddy Karumudi',
@@ -54,13 +54,21 @@ export const experience: Experience[] = [
     company: 'Tata Consultancy Services',
     role: 'Module Lead • Java Developer',
     period: 'Jan 2024 — Present · Hyderabad, India',
-    summary: 'Led OneSQ microservice for telecom service qualification. Replaced SOAP with REST (≈35% perf gain), achieved 99.9% uptime via robust monitoring/fault tolerance, improved qualification accuracy by 15%, cut escalations by 40% with geocoding-based address validation, and reduced response times by 30% using multithreading.',
+    summary: [
+      'Managed OneSQ development as sole developer which led to 15% improvement in operational service and service qualification accuracy.',
+      'Achieved 40% reduction in customer escalations of incorrect service availability by implementing efficient address search by geocoding accuracy validation.',
+      'Accomplished 30% growth for customer service optimization using REST calls, and multi-threading for faster response times.'
+    ],
   },
   {
     company: 'Tata Consultancy Services',
     role: 'Java Developer',
     period: 'Dec 2021 — Dec 2023 · Hyderabad, India',
-    summary: 'Migrated on‑prem apps to AWS (+35% scalability). Delivered Spring Boot enterprise POCs. Automated EC2→S3 workflows with MFT integration using shell scripting.',
+    summary: [
+      'Migrated on-premise applications to AWS improving scalability by 35%.',
+      'Underwent a comprehensive training program and developed proof-of-concept applications using Spring Boot demonstrating proficiency in enterprise java development.',
+      'Automated EC2 to S3 workflows with MFT integration for external systems using shell scripting.'
+    ]
   },
 ]
 

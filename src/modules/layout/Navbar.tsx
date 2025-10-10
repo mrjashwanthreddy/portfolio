@@ -8,8 +8,9 @@ export function Navbar() {
         <NavLink to="/" className="brand">{profile.name}</NavLink>
         <div className="nav-links">
           <NavLink to="/">About</NavLink>
+          <NavLink to="/experience">Experience</NavLink>
           <NavLink to="/projects">Projects</NavLink>
-          <NavLink to="/contact">Contacts</NavLink>
+          <NavLink to="/contact">Contact Me</NavLink>
           <a href={profile.resumeUrl} download>Resume</a>
         </div>
       </nav>
