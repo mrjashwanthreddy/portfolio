@@ -3,11 +3,13 @@ import { projects } from '../../data/site'
 
 export function ProjectsPage() {
   return (
-    <section>
+    <section className="section-card">
       <h1>Projects</h1>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 16 }}>
-        {projects.map((p) => (
-          <ProjectCard key={p.title} title={p.title} description={p.description} tags={p.tags} />
+      <div className="projects-list">
+        {projects.map((p, idx) => (
+          <div key={p.title} className={idx % 2 === 1 ? 'project-card reverse' : 'project-card'}>
+            <ProjectCard title={p.title} description={p.description} tags={p.tags} href={p.href} />
+          </div>
         ))}
       </div>
     </section>
