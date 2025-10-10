@@ -10,6 +10,7 @@ export function Navbar() {
           <NavLink to="/">About</NavLink>
           <NavLink to="/projects">Projects</NavLink>
           <NavLink to="/contact">Contacts</NavLink>
+          <a href={profile.resumeUrl} download>Resume</a>
         </div>
       </nav>
     </header>
