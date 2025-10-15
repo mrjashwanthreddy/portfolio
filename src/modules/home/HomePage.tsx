@@ -1,4 +1,3 @@
-import * as React from 'react'
 import { IconType } from 'react-icons'
 import { FaJava } from "react-icons/fa";
 import {
@@ -24,6 +23,7 @@ import {
 } from 'react-icons/si'
 import { links } from '../../data/site'
 import './home.css'
+import {JSX} from "react";
 
 type SkillCategory = {
     title: string
