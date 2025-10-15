@@ -72,7 +72,6 @@ p { color: var(--muted); }
   position: absolute;
   inset: 0;
   background: var(--brand);
-  clip-path: path('M0,0 C200,0 220,40 220,140 C220,240 420,220 420,320 L0,320 Z');
 }
 .hero-photo {
   position: absolute;
