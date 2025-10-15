@@ -1,52 +1,91 @@
 export type Link = { label: string; href: string }
-export type Project = { title: string; description: string; tags: string[]; href?: string }
-export type Experience = { company: string; role: string; period: string; summary: string; links?: Link[] }
+export type Project = {
+    title: string
+    slug?: string
+    description: string[]
+    tags?: string[]
+    href?: string
+    image?: string
+}
+export type Experience = { company: string; role: string; period: string; summary: string | string[]; links?: Link[] }
 
 export const profile = {
-  name: 'Jashwanth Reddy Karumudi',
-  title: 'Software Engineer • Java / Spring Boot',
-  bio: 'Software Engineer with 3+ years building Java, Spring Boot, and microservice back-end systems on AWS. Passionate about automation, containerization, and cloud best practices.',
-  location: 'Hyderabad, India',
-  resumeUrl: '/Jashwanth_Reddy_Karumudi_Java_Developer_JSB.pdf',
+    name: 'Jashwanth Reddy Karumudi',
+    title: 'Software Engineer • Java / Spring Boot',
+    bio: 'Software Engineer with 3+ years building Java, Spring Boot, and microservice back-end systems on AWS. Passionate about automation, containerization, and cloud best practices.',
+    location: 'Hyderabad, India',
+    resumeUrl: '/Jashwanth_Reddy_Karumudi_Java_Developer_JSB.pdf',
 }
 
 export const links: Link[] = [
-  { label: 'GitHub', href: 'https://github.com/mrjashwanthreddy' },
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/jashwanth-java-developer/' },
-  { label: 'Email', href: 'mailto:mr.jashwanthreddy@gmail.com' },
+    {label: 'GitHub', href: 'https://github.com/mrjashwanthreddy'},
+    {label: 'LinkedIn', href: 'https://www.linkedin.com/in/jashwanth-java-developer/'},
+    {label: 'Email', href: 'mailto:mr.jashwanthreddy@gmail.com'},
 ]
 
 export const projects: Project[] = [
-  {
-    title: 'E‑Commerce Microservices Platform',
-    description: 'Distributed e‑commerce with 4+ microservices using Java 17, Spring Boot 3.5, Spring Cloud (Gateway, Eureka, Config), Zipkin tracing. Dockerized and orchestrated with Kubernetes.',
-    tags: ['Java', 'Spring Boot', 'Spring Cloud', 'Docker', 'Kubernetes', 'Zipkin'],
-  },
-  {
-    title: 'IMAGINE – CONSUMER (OneSQ)',
-    description: 'Telecom service qualification microservice; replaced SOAP with REST (+35% perf), 99.9% uptime via monitoring & fault tolerance, +15% accuracy with geocoding validation.',
-    tags: ['Java', 'Spring Boot', 'REST', 'Monitoring'],
-  },
-  {
-    title: 'Payment Service Module',
-    description: 'Modernized legacy workloads, migrated to AWS (+35% scalability) and automated EC2⇄S3 workflows with MFT and shell scripting.',
-    tags: ['Java', 'Spring Boot', 'AWS', 'Shell'],
-  },
+    {
+        title: 'Payment Service Module',
+        slug: 'payment-service-module',
+        description: [
+            'Migrated on-premise applications to AWS improving scalability by 35%.',
+            'Implemented EC2 to S3 workflows with MFT integration for external systems using shell scripting.',
+            'Completed Spring Boot enterprise training and delivered POC applications that demonstrate back-end skills.'
+        ],
+        tags: ['Java', 'Spring Boot', 'AWS', 'Shell'],
+        href: '/payment-service-module.png',
+        image: '/payment-service-module.png',
+    },
+    {
+        title: 'IMAGINE – CONSUMER (OneSQ)',
+        slug: 'imagine-consumer-soho',
+        description: [
+            'Developed microservice to retrieve service qualification data from multiple telecom wholesalers.',
+            'Replaced legacy SOAP with REST, improving performance by 35%.',
+            'Achieved 99.9% production up-time using robust monitoring and fault tolerance.',
+            'Led the development of OneSQ as the sole developer, improving the accuracy of service qualification by 15%.',
+            'Reduced customer escalations by 40% through geocoding-based address validation using secure code practices.',
+            'Improved response times by 30% using REST APIs and multithreading for service optimization.'
+        ],
+        tags: ['Java', 'Spring Boot', 'REST', 'Monitoring', 'Fault Tolerance', 'Multithreading', 'AWS'],
+        href: '/imagine-consumer-soho.png',
+        image: '/imagine-consumer-soho.png',
+    },
+    {
+        title: 'E‑Commerce Microservices Platform',
+        slug: 'mj-ecom',
+        description: [
+            'Distributed e‑commerce with 4+ microservices using Java 17, Spring Boot 3.5',
+            'Spring Cloud (Gateway, Eureka, Config), Zipkin tracing',
+            'Dockerized and orchestrated with Kubernetes'
+        ],
+        tags: ['Java', 'Spring Boot', 'Spring Cloud', 'Docker', 'Kubernetes', 'Zipkin', 'Redis', 'Prometheus', 'Grafana', 'Kafka'],
+        href: '/mj-ecom.png',
+        image: '/mj-ecom.png',
+    },
 ]
 
 export const experience: Experience[] = [
-  {
-    company: 'Tata Consultancy Services',
-    role: 'Module Lead • Java Developer',
-    period: 'Jan 2024 — Present · Hyderabad, India',
-    summary: 'Led OneSQ microservice for telecom service qualification. Replaced SOAP with REST (≈35% perf gain), achieved 99.9% uptime via robust monitoring/fault tolerance, improved qualification accuracy by 15%, cut escalations by 40% with geocoding-based address validation, and reduced response times by 30% using multithreading.',
-  },
-  {
-    company: 'Tata Consultancy Services',
-    role: 'Java Developer',
-    period: 'Dec 2021 — Dec 2023 · Hyderabad, India',
-    summary: 'Migrated on‑prem apps to AWS (+35% scalability). Delivered Spring Boot enterprise POCs. Automated EC2→S3 workflows with MFT integration using shell scripting.',
-  },
+    {
+        company: 'Tata Consultancy Services',
+        role: 'Module Lead • Java Developer',
+        period: 'Jan 2024 — Present · Hyderabad, India',
+        summary: [
+            'Managed OneSQ development as sole developer which led to 15% improvement in operational service and service qualification accuracy.',
+            'Achieved 40% reduction in customer escalations of incorrect service availability by implementing efficient address search by geocoding accuracy validation.',
+            'Accomplished 30% growth for customer service optimization using REST calls, and multi-threading for faster response times.'
+        ],
+    },
+    {
+        company: 'Tata Consultancy Services',
+        role: 'Java Developer',
+        period: 'Dec 2021 — Dec 2023 · Hyderabad, India',
+        summary: [
+            'Migrated on-premise applications to AWS improving scalability by 35%.',
+            'Underwent a comprehensive training program and developed proof-of-concept applications using Spring Boot demonstrating proficiency in enterprise java development.',
+            'Automated EC2 to S3 workflows with MFT integration for external systems using shell scripting.'
+        ]
+    },
 ]
 
 

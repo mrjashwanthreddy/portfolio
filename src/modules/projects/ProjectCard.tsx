@@ -1,29 +1,49 @@
+import {Link} from "react-router-dom";
+
 type ProjectCardProps = {
-  title: string
-  description: string
-  tags?: string[]
-  href?: string
+    title: string
+    description: string[]
+    tags?: string[]
+    href?: string
+    image?: string
 }
 
-export function ProjectCard({ title, description, tags = [], href }: ProjectCardProps) {
-  return (
-    <article className="project-card" style={{ border: '1px solid #1f2640', padding: 16, borderRadius: 12, background: '#12172a' }}>
-      <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
-        <h3 style={{ margin: 0 }}>{title}</h3>
-        {href && (
-          <a href={href} target="_blank" rel="noreferrer" style={{ color: 'var(--brand)' }}>View</a>
-        )}
-      </header>
-      <p style={{ marginTop: 8, color: 'var(--muted)' }}>{description}</p>
-      {tags.length > 0 && (
-        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginTop: 12 }}>
-          {tags.map((tag) => (
-            <span key={tag} style={{ fontSize: 12, color: 'var(--muted)', background: '#0b1020', border: '1px solid #1f2640', padding: '4px 8px', borderRadius: 999 }}>{tag}</span>
-          ))}
+export function ProjectCard({title, description, tags = [], href, image}: ProjectCardProps) {
+    const summary = description[0]
+    return (
+        <div className="project-tile">
+            <Link className="tile-media" to={href ?? '#'} aria-label={title}>
+                {image ? (
+                    <img
+                        src={image}
+                        alt={`${title} screenshot`}
+                        className="project-image"
+                        loading="lazy"
+                    />
+                ) : null}
+            </Link>
+            <div className="tile-body">
+                <h3 className="project-title">{title}</h3>
+                {summary && <p className="project-summary">{summary}</p>}
+                {tags.length > 0 && (
+                    <div className="chip-row">
+                        {tags.map((tag) => (
+                            <span className="chip" key={tag}>
+                {tag}
+              </span>
+                        ))}
+                    </div>
+                )}
+                <div className="project-actions">
+                    {href && (
+                        <Link className="btn btn-outline btn-hover-brand" to={href}>
+                            Show More →
+                        </Link>
+                    )}
+                </div>
+            </div>
         </div>
-      )}
-    </article>
-  )
+    )
 }
 
 

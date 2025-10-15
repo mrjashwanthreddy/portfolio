@@ -1,0 +1,90 @@
+.skills-section {
+    /*background: #000; !* black to black *!*/
+    background-color: #fff;
+    /*color: #fff;*/
+    color: #2d3753;
+    width: 100%;
+    padding: 48px 16px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    border-radius: 16px;
+    overflow: hidden;
+    background: var(--page);
+}
+
+.skills-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+.skill-category-title {
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #fff;
+}
+
+.skill-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.skill-item {
+    /*background: rgba(255,255,255,0.04);*/
+    background: #2d3753;
+    padding: 8px 10px;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    color: #fff;
+}
+
+/* css
+File: `portfolio/src/modules/home/home.css`
+Additions only — safe to merge with existing rules.
+*/
+.skill-item {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* space between icon and text */
+}
+
+/* icon sizing and color; inherit text color for theming */
+.skill-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    color: currentColor;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* slightly tighten skill-name padding (keeps previous chip look) */
+.skill-name {
+    padding: 6px 10px;
+    /*background: rgba(255,255,255,0.04);*/
+    background: #2d3753;
+    border-radius: 6px;
+    color: inherit;
+}
+
+/* Add spacing between the hero card and the skills section */
+.card-shell + .skills-section {
+    margin-top: 28px; /* adjust value to taste */
+}
+
+/* Give more space on wider screens */
+@media (min-width: 900px) {
+    .card-shell + .skills-section {
+        margin-top: 40px;
+    }
+}
