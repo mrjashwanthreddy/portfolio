@@ -79,7 +79,7 @@ export function ProjectDetail() {
                             (project.href.startsWith('http') ? (
                                 <a className="btn btn-primary" href={project.href} target="_blank" rel="noreferrer">Live</a>
                             ) : (
-                                <a className="btn btn-outline" href={project.href} target="_blank" rel="noreferrer">View</a>
+                                <a className="btn btn-outline" href={project.github} target="_blank" rel="noreferrer">View</a>
                             ))
                         ) : null}
 

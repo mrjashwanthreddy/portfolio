@@ -46,9 +46,14 @@ a { color: var(--text); text-decoration: none; }
 }
 
 /* navbar */
-.navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: var(--page); box-shadow: 0 6px 18px rgba(11,19,40,0.08); border-bottom: 1px solid var(--border); height: var(--navbar-height); }
+.navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; /* make navbar semi-transparent to blend with background */
+  background: rgba(245,247,251,0.95); /* less transparent: closer to solid */
+  -webkit-backdrop-filter: blur(6px);
+    font-size: x-large;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 6px 18px rgba(11,19,40,0.08); border-bottom: 1px solid var(--border); height: var(--navbar-height); }
 .nav-wrap { max-width: 1120px; margin: 0 auto; display: flex; align-items: center; justify-content: flex-end; padding: 0 24px; height: 100%; }
-.brand { position: absolute; left: 24px; top: 50%; transform: translateY(-50%); font-weight: 800; letter-spacing: 0.3px; font-size: 1.6rem; color: var(--text); background: var(--page); padding: 6px 12px; border-radius: 6px; border: 2px solid var(--brand-strong); box-shadow: 0 4px 12px rgba(11,19,40,0.06); z-index: 1100; }
+.brand { position: absolute; left: 24px; top: 50%; transform: translateY(-50%); font-weight: 700; letter-spacing: 0.3px; font-size: 0.95rem; color: var(--text); opacity: 0.95; background: transparent; padding: 0; border-radius: 0; border: none; box-shadow: none; z-index: 1100; font-size: xx-large}
 .nav-links { margin-left: auto; display: flex; gap: 20px; align-items: center; }
 .nav-links a { color: var(--text); opacity: 0.95; font-weight: 700; }
 .nav-links a.active, .nav-links a:hover { opacity: 1; }
@@ -70,9 +75,9 @@ a { color: var(--text); text-decoration: none; }
   text-decoration: none;
   font-weight: 700;
 }
-.nav-links-right a:hover { opacity: 1; text-decoration: underline; }
+.nav-links-right a:hover { opacity: 1; text-decoration: purple; }
 
-.footer { background: var(--page); border-top: 1px solid var(--border); padding: 24px; text-align: center; color: var(--muted); }
+.footer { background: rgba(245,247,251,0.92); border-top: 1px solid var(--border); padding: 24px; text-align: center; color: var(--muted); }
 
 h1 { margin: 0 0 16px; font-size: 48px; line-height: 1.1; }
 p { color: var(--muted); }
@@ -123,7 +128,7 @@ p { color: var(--muted); }
   .nav-wrap { padding: 16px; }
   .project-media { min-height: 140px; }
   :root { --navbar-height: 64px; }
-  .brand { font-size: 1.05rem; left: 12px; padding: 4px 8px; }
+  .brand { font-size: 0.95rem; left: 12px; padding: 0; opacity: 0.95; }
   .nav-wrap { padding: 0 16px; }
   .main-content { padding-top: calc(var(--navbar-height) + 28px); }
   .hero-visual { width: var(--hero-photo-width); min-height: 240px; top: 28px; }
@@ -131,7 +136,7 @@ p { color: var(--muted); }
 }
 
 /* projects */
-.section-card { background: var(--page); border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.08); padding: 32px; }
+.section-card { background: var(--page); border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.08); padding: 32px;}
 
 /* new dark section to mimic screenshot */
 .section-dark { background: #f2f3ff; /* deep blue */ color: #e8ecf6; border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.12); padding: 32px; }
@@ -139,7 +144,7 @@ p { color: var(--muted); }
 .section-subtitle { color: #b9c2d6; text-align: center; margin: 0 0 24px; }
 
 /* grid of project tiles */
-.projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;}
 
 @media (max-width: 1000px) {
   .projects-grid { grid-template-columns: repeat(2, 1fr); }
@@ -166,11 +171,13 @@ p { color: var(--muted); }
 .exp-meta { color: var(--muted); margin: 6px 0; }
 
 /* contact */
-.contact-wrap { background: var(--page); border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.08); padding: 24px; }
-.form { display: grid; gap: 12px; max-width: 420px; }
+.contact-wrap { background: var(--page); border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.08); padding: 24px;
+  /* center the block and constrain width so it doesn't spread full width */
+  max-width: 720px; margin: 28px auto; text-align: center; }
+.form { display: grid; gap: 12px; max-width: 420px; margin: 0 auto; }
 .input, .textarea { width: 100%; border: 1px solid var(--border); border-radius: 8px; background: #fff; color: var(--text); padding: 10px 12px; font-family: var(--font-sans), sans-serif; }
 .textarea { min-height: 120px; resize: vertical; }
-.send-row { margin-top: 6px; }
+.send-row { margin-top: 6px; text-align: center; }
 
 /* accessibility */
 :focus-visible { outline: 3px solid var(--brand-strong); outline-offset: 2px; }
@@ -191,7 +198,7 @@ p { color: var(--muted); }
   .nav-wrap { padding: 16px; }
   .project-media { min-height: 140px; }
   :root { --navbar-height: 64px; }
-  .brand { font-size: 1.05rem; left: 12px; padding: 4px 8px; }
+  .brand { font-size: 0.95rem; left: 12px; padding: 0; opacity: 0.95; }
   .nav-wrap { padding: 0 16px; }
   .main-content { padding-top: calc(var(--navbar-height) + 28px); }
 }
@@ -220,6 +227,17 @@ p { color: var(--muted); }
 .projects-section h1 { color: var(--text); margin: 0 0 12px; }
 .projects-section .section-subtitle { color: rgba(0,0,0,0.65); margin-bottom: 18px; }
 
-@media (max-width: 700px) {
-  .projects-section { padding: 20px 16px; max-width: 100%; }
+/* Keep project cards a comfortable size and center them inside section-dark
+   - use max-width on the grid container so cards don't expand across entire page
+   - use responsive columns with minmax so tiles keep a reasonable width
+   - purely additive, scoped to .section-dark so other grids are unaffected */
+.section-dark .projects-grid {
+  max-width: 1120px; /* constrain overall width */
+  margin: 0 auto; /* center the grid */
+  padding: 0 20px; /* small side padding so cards don't hit edges */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
 }
+
+/* ensure project tiles don't become extremely tall/wide due to images */
+.section-dark .project-tile { max-width: 100%; }

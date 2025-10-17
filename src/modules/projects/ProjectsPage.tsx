@@ -14,12 +14,11 @@ export function ProjectsPage() {
                   description={p.description}
                   tags={p.tags}
                   href={`/projects/${p.slug}`}
-                  image={p.logo}
+                  logo={p.logo}
+                  // image={p.image}
               />
           ))}
       </div>
     </section>
   )
 }
-
-

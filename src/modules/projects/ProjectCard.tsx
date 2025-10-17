@@ -6,6 +6,7 @@ type ProjectCardProps = {
     tags?: string[]
     href?: string
     logo?: string
+    image?: string
 }
 
 export function ProjectCard({title, description, tags = [], href, logo}: ProjectCardProps) {
