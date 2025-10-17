@@ -1,10 +1,16 @@
 name: Deploy to GitHub Pages
 
+# Ensure the workflow token can push and manage pages
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
 on:
   push:
     branches:
       - deployment/github-pages
-+  workflow_dispatch:
+  workflow_dispatch:
 
 jobs:
   build-and-deploy:
@@ -16,7 +22,18 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '18'
+
+      - name: Debug: show versions and repo files
+        run: |
+          node -v
+          npm -v
+          pwd
+          ls -la
+          echo "--- package.json ---"
+          cat package.json
+          echo "--- package-lock.json (first 200 lines) ---"
+          head -n 200 package-lock.json || true
 
       - name: Install dependencies
         run: npm ci
@@ -29,4 +46,3 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
-
