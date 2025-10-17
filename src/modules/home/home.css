@@ -1,19 +1,93 @@
-.skills-section {
-    /*background: #000; !* black to black *!*/
-    background-color: #fff;
-    /*color: #fff;*/
-    color: #2d3753;
-    width: 100%;
-    padding: 48px 16px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-    border-radius: 16px;
-    overflow: hidden;
-    background: var(--page);
+/* tuned accent values for stronger purple dominance */
+:root {
+    --accent-purple: #ac00ff; /* richer purple */
+    --accent-purple-strong: #6b00d9; /* stronger deep purple */
 }
 
+/* Hero card with subtle white -> purple blend */
+.card-shell.hero-gradient {
+    position: relative; /* for pseudo element */
+    /* keep a mostly white surface but allow purple to show through toward the visual side */
+    background: linear-gradient(180deg, rgba(255,255,255,0.94), rgba(255,255,255,0.92));
+    overflow: visible; /* allow purple glow to extend */
+}
+.card-shell.hero-gradient::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    /* stronger purple glow concentrated around the photo, but feathered into white */
+    background: radial-gradient(780px 380px at 84% 20%, rgba(172,0,255,0.28), rgba(107,0,217,0.22) 30%, rgba(107,0,217,0.12) 50%, transparent 68%),
+                linear-gradient(90deg, rgba(255,255,255,0.0) 0%, rgba(172,0,255,0.12) 35%, rgba(172,0,255,0.18) 100%);
+    border-radius: inherit;
+}
+
+/* ensure content above the pseudo element */
+.card-shell.hero-gradient .hero, .card-shell.hero-gradient .hero * { position: relative; z-index: 1; }
+
+/* refine hero text colors for contrast on the blended background */
+.card-shell.hero-gradient h1,
+.card-shell.hero-gradient p,
+.card-shell.hero-gradient .hero-actions a {
+    color: var(--text);
+}
+
+/* subtle tweak for the hero photo rim to emphasize purple */
+.card-shell.hero-gradient .hero-photo {
+    border-color: rgba(255,255,255,0.92);
+    box-shadow: 0 12px 36px rgba(107,0,217,0.18), 0 4px 12px rgba(0,0,0,0.06);
+}
+
+/* Skills section: blended white + purple with gentle elevation */
+.skills-section {
+    position: relative;
+    background: linear-gradient(135deg, rgba(172,0,255,0.22) 0%, rgba(255,255,255,0.92) 40%, rgba(107,0,217,0.20) 100%);
+    border-radius: 16px;
+    box-shadow: 0 20px 44px rgba(11,19,40,0.06);
+    color: #111827;
+}
+.skills-section::before {
+    content: '';
+    position: absolute;
+    left: -8%;
+    top: -28%;
+    width: 62%;
+    height: 150%;
+    background: radial-gradient(circle at 12% 18%, rgba(172,0,255,0.18), rgba(107,0,217,0.12) 36%, transparent 65%);
+    pointer-events: none;
+    z-index: 0;
+    border-radius: 50%;
+}
+.skills-inner { z-index: 1; position: relative; }
+
+/* make the skill chips match the purple accent while keeping readable text */
+.skill-item {
+    background: linear-gradient(90deg, rgba(107,0,217,0.98), rgba(172,0,255,0.98));
+    color: #fff;
+    box-shadow: 0 8px 22px rgba(107,0,217,0.12);
+    padding: 10px 12px; /* slightly more padding for visual weight */
+}
+.skill-item .skill-icon { color: rgba(255,255,255,0.96); }
+.skill-name { background: transparent; padding: 0; }
+
+/* slightly lift each category card for separation */
+.skill-category { background: rgba(255,255,255,0.0); padding: 10px; border-radius: 10px; }
+
+/* responsive tweak: reduce purple intensity on very small screens to preserve readability */
+@media (max-width: 640px) {
+    .card-shell.hero-gradient::before { background: radial-gradient(460px 240px at 84% 12%, rgba(172,0,255,0.18), rgba(107,0,217,0.10) 30%, transparent 56%); }
+    .skills-section { background: linear-gradient(180deg, rgba(255,255,255,0.97), rgba(255,255,255,0.95)); }
+    .skill-item { background: linear-gradient(90deg, rgba(107,0,217,0.86), rgba(172,0,255,0.86)); }
+}
+
+/* ...existing code... */
+
+/* removed duplicate override that reverted purple styling; preserve layout and spacing below */
 .skills-inner {
     max-width: 1000px;
     margin: 0 auto;
+    z-index: 1; /* ensure it's above decorative pseudo elements */
 }
 
 .skills-grid {
@@ -21,7 +95,6 @@
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     gap: 16px;
     margin-top: 16px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
 }
 
 .skill-category-title {
@@ -39,43 +112,16 @@
     gap: 8px;
 }
 
+/* Keep the purple chip appearance from earlier .skill-item rules but ensure consistent sizing */
 .skill-item {
-    /*background: rgba(255,255,255,0.04);*/
-    background: #2d3753;
-    padding: 8px 10px;
     border-radius: 6px;
     font-size: 0.95rem;
-    color: #fff;
-}
-
-/* css
-File: `portfolio/src/modules/home/home.css`
-Additions only — safe to merge with existing rules.
-*/
-.skill-item {
     display: flex;
     align-items: center;
-    gap: 10px; /* space between icon and text */
+    gap: 10px;
 }
 
-/* icon sizing and color; inherit text color for theming */
-.skill-icon {
-    width: 20px;
-    height: 20px;
-    flex-shrink: 0;
-    color: currentColor;
-    display: inline-block;
-    vertical-align: middle;
-}
-
-/* slightly tighten skill-name padding (keeps previous chip look) */
-.skill-name {
-    padding: 6px 10px;
-    /*background: rgba(255,255,255,0.04);*/
-    background: #2d3753;
-    border-radius: 6px;
-    color: inherit;
-}
+.skill-name { background: transparent; padding: 0; }
 
 /* Add spacing between the hero card and the skills section */
 .card-shell + .skills-section {

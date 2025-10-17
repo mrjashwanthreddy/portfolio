@@ -1,5 +1,5 @@
 import { IconType } from 'react-icons'
-import { FaJava } from "react-icons/fa";
+import { FaJava} from "react-icons/fa";
 import {
     SiJavascript,
     SiReact,
@@ -19,7 +19,8 @@ import {
     SiAnsible,
     SiJenkins,
     SiTerraform,
-    SiCoder
+    SiCoder,
+    SiApachekafka
 } from 'react-icons/si'
 import { links } from '../../data/site'
 import './home.css'
@@ -51,20 +52,21 @@ const iconMap: Record<string, IconType> = {
     'amazon web services': SiAmazonwebservices,
     'ansible': SiAnsible,
     'jenkins': SiJenkins,
-    'terraform': SiTerraform
+    'terraform': SiTerraform,
+    'kafka': SiApachekafka
 }
 
 function Skills(): JSX.Element {
     const categories: SkillCategory[] = [
         { title: 'FRONTEND', items: ['JavaScript', 'React', 'Tailwind CSS', 'HTML', 'CSS', 'Bootstrap'] },
-        { title: 'BACKEND', items: ['Java', 'Spring Boot'] },
+        { title: 'BACKEND', items: ['Java', 'Spring Boot', 'kafka'] },
         { title: 'DATABASE', items: ['MongoDB', 'MySQL', 'Oracle', 'Postgres'] },
         { title: 'TOOLS', items: ['Git', 'Docker', 'GitHub', 'AWS', 'Ansible', 'Jenkins', 'Terraform'] }
     ]
     return (
         <section className="skills-section" aria-labelledby="skills-heading">
             <div className="skills-inner">
-                <h2 id="skills-heading" className="section-heading">Skills</h2>
+                <h2 id="skills-heading" className="section-heading">Technical Skills</h2>
                 <div className="skills-grid">
                     {categories.map(cat => (
                         <div key={cat.title} className="skill-category">
@@ -95,15 +97,12 @@ export function HomePage(): JSX.Element {
 
     return (
         <>
-            <section className="card-shell">
+            <section className="card-shell hero-gradient">
                 <div className="hero">
                     <div>
                         {/* <div className="hero-eyebrow">Java Developer</div> */}
-                        <h1>Hello, I'm a<br />Software Engineer</h1>
                         <p>
-                            Java Developer with 3+ years of experience in Java, Spring Boot, Microservice software and back-end development,
-                            seeking full-time back-end roles to design and build high-performing scalable applications using automation,
-                            containerization, and cloud best practices.
+                            <h2>I'm a backend-focused Software Engineer and Java Developer</h2> with 3+ years building high-performance Spring Boot microservices. I design and implement scalable RESTful APIs and cloud-native systems using AWS, Docker, and Kubernetes, with strong expertise in MySQL/Postgres, MongoDB, and Redis. I follow test-driven and SOLID practices (JUnit, Mockito, REST Assured), automate CI/CD pipelines, and implement observability and fault-tolerance to ensure reliable production uptime. Seeking full-time back-end roles where I can drive automation, containerization, and cloud best practices to deliver maintainable, production-ready systems.
                         </p>
                         <div className="hero-actions">
                             <a className="btn btn-outline btn-hover-brand" href="/projects">Projects</a>
@@ -116,7 +115,7 @@ export function HomePage(): JSX.Element {
                         </div>
                     </div>
                     <div className="hero-visual">
-                        <div className="hero-blob" />
+                        {/*<div className="hero-blob" />*/}
                         <img className="hero-photo" src="/profile.jpg" alt="Profile" />
                     </div>
                 </div>
@@ -126,39 +125,3 @@ export function HomePage(): JSX.Element {
         </>
     )
 }
-
-/*
-export function HomePage() {
-  return (
-    <section className="card-shell">
-      <div className="hero">
-        <div>
-          {/!* <div className="hero-eyebrow">Java Developer</div> *!/}
-          <h1>Hello, I'm a<br />Software Engineer</h1>
-          <p>Java Developer with 3+ years of experience in Java, Spring Boot, Microservice software and back-end development, seeking full-time back-end roles to design and build high-performing scalable applications using automation,
-          containerization, and cloud best practices.</p>
-          <div className="hero-actions">
-            <a className="btn btn-outline btn-hover-brand" href="/projects">Projects</a>
-            {links.find(l => l.label.toLowerCase()==='github') && (
-              <a className="btn btn-outline" href={links.find(l => l.label.toLowerCase()==='github')!.href} target="_blank" rel="noreferrer">GitHub</a>
-            )}
-            {links.find(l => l.label.toLowerCase()==='linkedin') && (
-              <a className="btn btn-outline" href={links.find(l => l.label.toLowerCase()==='linkedin')!.href} target="_blank" rel="noreferrer">LinkedIn</a>
-            )}
-            {/!* {links.find(l => l.href.startsWith('mailto:')) && (
-              <a className="btn btn-outline" href={links.find(l => l.href.startsWith('mailto:'))!.href}>Email</a>
-            )} *!/}
-          </div>
-        </div>
-        <div className="hero-visual">
-          <div className="hero-blob" />
-          {/!* Profile image provided by user; place file at public/profile.jpg *!/}
-          <img className="hero-photo" src="/profile.jpg" alt="Profile" />
-        </div>
-      </div>
-    </section>
-  )
-}
-*/
-
-

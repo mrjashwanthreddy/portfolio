@@ -1,4 +1,3 @@
-import * as React from "react";
 import { ProjectCard } from './ProjectCard'
 import { projects } from '../../data/site'
 
@@ -15,12 +14,11 @@ export function ProjectsPage() {
                   description={p.description}
                   tags={p.tags}
                   href={`/projects/${p.slug}`}
-                  image={p.image}
+                  logo={p.logo}
+                  // image={p.image}
               />
           ))}
       </div>
     </section>
   )
 }
-
-

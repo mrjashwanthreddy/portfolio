@@ -3,7 +3,7 @@ import { experience } from '../../data/site'
 export function ExperiencePage() {
   return (
     <section className="section-card">
-      <h1>About me</h1>
+      <h1>Professional Experience</h1>
       <div className="timeline">
         {experience.map((exp) => (
           <article className="exp-card" key={`${exp.company}-${exp.role}`}>
