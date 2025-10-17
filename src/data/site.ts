@@ -6,6 +6,7 @@ export type Project = {
     tags?: string[]
     href?: string
     image?: string
+    logo?: string
 }
 export type Experience = { company: string; role: string; period: string; summary: string | string[]; links?: Link[] }
 
@@ -35,6 +36,7 @@ export const projects: Project[] = [
         tags: ['Java', 'Spring Boot', 'AWS', 'Shell'],
         href: '/payment-service-module.png',
         image: '/payment-service-module.png',
+        logo: '/tpg-telecom.png',
     },
     {
         title: 'IMAGINE – CONSUMER (OneSQ)',
@@ -50,6 +52,7 @@ export const projects: Project[] = [
         tags: ['Java', 'Spring Boot', 'REST', 'Monitoring', 'Fault Tolerance', 'Multithreading', 'AWS'],
         href: '/imagine-consumer-soho.png',
         image: '/imagine-consumer-soho.png',
+        logo: '/tpg-onesq.png',
     },
     {
         title: 'E‑Commerce Microservices Platform',
@@ -62,6 +65,7 @@ export const projects: Project[] = [
         tags: ['Java', 'Spring Boot', 'Spring Cloud', 'Docker', 'Kubernetes', 'Zipkin', 'Redis', 'Prometheus', 'Grafana', 'Kafka'],
         href: '/mj-ecom.png',
         image: '/mj-ecom.png',
+        logo: '/mj-ecom-logo-main.png',
     },
 ]
 

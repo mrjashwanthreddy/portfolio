@@ -5,17 +5,17 @@ type ProjectCardProps = {
     description: string[]
     tags?: string[]
     href?: string
-    image?: string
+    logo?: string
 }
 
-export function ProjectCard({title, description, tags = [], href, image}: ProjectCardProps) {
+export function ProjectCard({title, description, tags = [], href, logo}: ProjectCardProps) {
     const summary = description[0]
     return (
         <div className="project-tile">
             <Link className="tile-media" to={href ?? '#'} aria-label={title}>
-                {image ? (
+                {logo ? (
                     <img
-                        src={image}
+                        src={logo}
                         alt={`${title} screenshot`}
                         className="project-image"
                         loading="lazy"
