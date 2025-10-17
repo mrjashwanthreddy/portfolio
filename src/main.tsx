@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {createRoot} from 'react-dom/client'
-import {createBrowserRouter, RouterProvider} from 'react-router-dom'
+import {createHashRouter, RouterProvider} from 'react-router-dom'
 import './style.css'
 
 import {AppLayout} from './modules/layout/AppLayout'
@@ -10,7 +10,7 @@ import {ProjectDetail} from './modules/projects/ProjectDetail'
 import {ExperiencePage} from './modules/experience/ExperiencePage'
 import {ContactPage} from './modules/contact/ContactPage'
 
-const router = createBrowserRouter([
+const router = createHashRouter([
     {
         path: '/',
         element: <AppLayout/>,
