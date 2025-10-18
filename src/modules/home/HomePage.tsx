@@ -1,5 +1,5 @@
 import { IconType } from 'react-icons'
-import { FaJava} from "react-icons/fa";
+import { FaJava, FaFolderOpen } from "react-icons/fa";
 import {
     SiJavascript,
     SiReact,
@@ -20,7 +20,8 @@ import {
     SiJenkins,
     SiTerraform,
     SiCoder,
-    SiApachekafka
+    SiApachekafka,
+    SiLinkedin
 } from 'react-icons/si'
 import { links } from '../../data/site'
 import './home.css'
@@ -66,7 +67,6 @@ function Skills(): JSX.Element {
     return (
         <section className="skills-section" aria-labelledby="skills-heading">
             <div className="skills-inner">
-                <h2 id="skills-heading" className="section-heading">Technical Skills</h2>
                 <div className="skills-grid">
                     {categories.map(cat => (
                         <div key={cat.title} className="skill-category">
@@ -101,16 +101,26 @@ export function HomePage(): JSX.Element {
                 <div className="hero">
                     <div>
                         {/* <div className="hero-eyebrow">Java Developer</div> */}
+                        <h2>I'm a backend-focused Software Engineer and Java Developer</h2>
                         <p>
-                            <h2>I'm a backend-focused Software Engineer and Java Developer</h2> with 3+ years building high-performance Spring Boot microservices. I design and implement scalable RESTful APIs and cloud-native systems using AWS, Docker, and Kubernetes, with strong expertise in MySQL/Postgres, MongoDB, and Redis. I follow test-driven and SOLID practices (JUnit, Mockito, REST Assured), automate CI/CD pipelines, and implement observability and fault-tolerance to ensure reliable production uptime. Seeking full-time back-end roles where I can drive automation, containerization, and cloud best practices to deliver maintainable, production-ready systems.
+                            3+ years building high-performance Spring Boot microservices. I design and implement scalable RESTful APIs and cloud-native systems using AWS, Docker, and Kubernetes, with strong expertise in MySQL/Postgres, MongoDB, and Redis. I follow test-driven and SOLID practices (JUnit, Mockito, REST Assured), automate CI/CD pipelines, and implement observability and fault-tolerance to ensure reliable production uptime. Seeking full-time back-end roles where I can drive automation, containerization, and cloud best practices to deliver maintainable, production-ready systems.
                         </p>
                         <div className="hero-actions">
-                            <a className="btn btn-outline btn-hover-brand" href="/projects">Projects</a>
+                            <a className="btn btn-projects" href="/projects">
+                                <FaFolderOpen className="btn-icon" />
+                                <span>Projects</span>
+                            </a>
                             {githubHref && (
-                                <a className="btn btn-outline" href={githubHref} target="_blank" rel="noreferrer">GitHub</a>
+                                <a className="btn btn-github" href={githubHref} target="_blank" rel="noreferrer">
+                                    <SiGithub className="btn-icon" />
+                                    <span>GitHub</span>
+                                </a>
                             )}
                             {linkedinHref && (
-                                <a className="btn btn-outline" href={linkedinHref} target="_blank" rel="noreferrer">LinkedIn</a>
+                                <a className="btn btn-linkedin" href={linkedinHref} target="_blank" rel="noreferrer">
+                                    <SiLinkedin className="btn-icon" />
+                                    <span>LinkedIn</span>
+                                </a>
                             )}
                         </div>
                     </div>

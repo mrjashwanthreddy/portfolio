@@ -81,7 +81,113 @@
     .skill-item { background: linear-gradient(90deg, rgba(107,0,217,0.86), rgba(172,0,255,0.86)); }
 }
 
-/* ...existing code... */
+/* Rich UI Button Styles */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 16px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn-icon {
+    font-size: 20px;
+    transition: transform 0.3s ease;
+    color: inherit;
+}
+
+.btn:hover .btn-icon {
+    transform: scale(1.15) rotate(5deg);
+}
+
+/* Projects Button - Purple theme */
+.btn-projects {
+    background: linear-gradient(135deg, #ac00ff 0%, #6b00d9 100%);
+    color: #ffffff;
+    border-color: #ac00ff;
+}
+
+.btn-projects:hover {
+    background: linear-gradient(135deg, #6b00d9 0%, #5500b3 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(172, 0, 255, 0.4);
+}
+
+/* GitHub Button - Dark theme */
+.btn-github {
+    background: linear-gradient(135deg, #24292e 0%, #1a1d21 100%);
+    color: #ffffff;
+    border-color: #24292e;
+}
+
+.btn-github:hover {
+    background: linear-gradient(135deg, #1a1d21 0%, #0d1117 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(36, 41, 46, 0.5);
+}
+
+/* LinkedIn Button - LinkedIn Blue theme */
+.btn-linkedin {
+    background: linear-gradient(135deg, #0077b5 0%, #005885 100%);
+    color: #ffffff;
+    border-color: #0077b5;
+}
+
+.btn-linkedin:hover {
+    background: linear-gradient(135deg, #005885 0%, #004060 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 119, 181, 0.5);
+}
+
+/* ensure hero action buttons show white text even when other rules target links */
+.card-shell.hero-gradient .hero-actions .btn {
+    color: #ffffff;
+}
+.card-shell.hero-gradient .hero-actions .btn span {
+    color: inherit; /* ensure inner text inherits the anchor color */
+}
+
+/* Active state for all buttons */
+.btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive button styles */
+@media (max-width: 640px) {
+    .btn {
+        padding: 10px 18px;
+        font-size: 14px;
+        gap: 8px;
+    }
+
+    .btn-icon {
+        font-size: 18px;
+    }
+}
 
 /* removed duplicate override that reverted purple styling; preserve layout and spacing below */
 .skills-inner {
@@ -125,12 +231,23 @@
 
 /* Add spacing between the hero card and the skills section */
 .card-shell + .skills-section {
-    margin-top: 28px; /* adjust value to taste */
+    margin-top: 48px; /* increased spacing to push skills lower */
 }
-
-/* Give more space on wider screens */
 @media (min-width: 900px) {
     .card-shell + .skills-section {
-        margin-top: 40px;
+        margin-top: 64px; /* more generous spacing on wide screens */
     }
 }
+
+/* make the hero bio text slightly larger and more readable */
+.card-shell.hero-gradient .hero p {
+    font-size: 16px; /* user requested size */
+    line-height: 1.6; /* improve readability */
+    color: #111827; /* ensure good contrast on the gradient */
+    margin: 0 0 18px;
+}
+.card-shell.hero-gradient .hero p h2 {
+    font-size: 20px; /* keep heading larger than body but balanced */
+    margin: 0 0 8px;
+}
+
