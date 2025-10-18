@@ -17,7 +17,7 @@ export const profile = {
     // bio: 'Software Engineer with 3+ years building Java, Spring Boot, and microservice back-end systems on AWS. Passionate about automation, containerization, and cloud best practices.',
     bio: 'a backend-focused Software Engineer and Java Developer with 3+ years building high-performance Spring Boot microservices. I design and implement scalable RESTful APIs and cloud-native systems using AWS, Docker, and Kubernetes, with strong expertise in MySQL/Postgres, MongoDB, and Redis. I follow test-driven and SOLID practices (JUnit, Mockito, REST Assured), automate CI/CD pipelines, and implement observability and fault-tolerance to ensure reliable production uptime. Seeking full-time back-end roles where I can drive automation, containerization, and cloud best practices to deliver maintainable, production-ready systems.',
     location: 'Hyderabad, India',
-    resumeUrl: '/Jashwanth_Reddy_Karumudi_Java_Developer_JSB.pdf',
+    resumeUrl: 'Jashwanth_Reddy_Karumudi_Java_Developer_JSB.pdf',
 }
 
 export const links: Link[] = [
@@ -36,9 +36,9 @@ export const projects: Project[] = [
             'Completed Spring Boot enterprise training and delivered POC applications that demonstrate back-end skills.'
         ],
         tags: ['Java', 'Spring Boot', 'AWS', 'Shell'],
-        href: '/payment-service-module.png',
-        image: '/payment-service-module.png',
-        logo: '/tpg-telecom.png',
+        href: 'payment-service-module.png',
+        image: 'payment-service-module.png',
+        logo: 'tpg-telecom.png',
     },
     {
         title: 'IMAGINE – CONSUMER (OneSQ)',
@@ -52,9 +52,9 @@ export const projects: Project[] = [
             'Improved response times by 30% using REST APIs and multithreading for service optimization.'
         ],
         tags: ['Java', 'Spring Boot', 'REST', 'Monitoring', 'Fault Tolerance', 'Multithreading', 'AWS'],
-        href: '/imagine-consumer-soho.png',
-        image: '/imagine-consumer-soho.png',
-        logo: '/tpg-onesq.png',
+        href: 'imagine-consumer-soho.png',
+        image: 'imagine-consumer-soho.png',
+        logo: 'tpg-onesq.png',
     },
     {
         title: 'E‑Commerce Microservices Platform',
@@ -65,9 +65,9 @@ export const projects: Project[] = [
             'Dockerized and orchestrated with Kubernetes'
         ],
         tags: ['Java', 'Spring Boot', 'Spring Cloud', 'Docker', 'Kubernetes', 'Zipkin', 'Redis', 'Prometheus', 'Grafana', 'Kafka'],
-        href: '/mj-ecom.png',
-        image: '/mj-ecom.png',
-        logo: '/mj-ecom-logo-main.png',
+        href: 'mj-ecom.png',
+        image: 'mj-ecom.png',
+        logo: 'mj-ecom-logo-main.png',
         github: 'https://github.com/mrjashwanthreddy/SpringBootEcommerceApplication/tree/master/mj-ecom-micorservices'
     },
 ]
@@ -94,5 +94,3 @@ export const experience: Experience[] = [
         ]
     },
 ]
-
-
