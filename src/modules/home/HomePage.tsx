@@ -62,7 +62,7 @@ function Skills(): JSX.Element {
         { title: 'FRONTEND', items: ['JavaScript', 'React', 'Tailwind CSS', 'HTML', 'CSS', 'Bootstrap'] },
         { title: 'BACKEND', items: ['Java', 'Spring Boot', 'kafka'] },
         { title: 'DATABASE', items: ['MongoDB', 'MySQL', 'Oracle', 'Postgres'] },
-        { title: 'TOOLS', items: ['Git', 'Docker', 'GitHub', 'AWS', 'Ansible', 'Jenkins', 'Terraform'] }
+        { title: 'CLOUD', items: ['Git', 'Docker', 'GitHub', 'AWS', 'Ansible', 'Jenkins', 'Terraform'] }
     ]
     return (
         <section className="skills-section" aria-labelledby="skills-heading">
@@ -97,13 +97,13 @@ export function HomePage(): JSX.Element {
 
     return (
         <>
-            <section className="card-shell hero-gradient">
+            <section className="card-shell hero-gradient home-hero">
                 <div className="hero">
                     <div>
                         {/* <div className="hero-eyebrow">Java Developer</div> */}
                         <h2>I'm a backend-focused Software Engineer and Java Developer</h2>
                         <p>
-                            3+ years building high-performance Spring Boot microservices. I design and implement scalable RESTful APIs and cloud-native systems using AWS, Docker, and Kubernetes, with strong expertise in MySQL/Postgres, MongoDB, and Redis. I follow test-driven and SOLID practices (JUnit, Mockito, REST Assured), automate CI/CD pipelines, and implement observability and fault-tolerance to ensure reliable production uptime. Seeking full-time back-end roles where I can drive automation, containerization, and cloud best practices to deliver maintainable, production-ready systems.
+                            3+ years building high-performance Spring Boot microservices. I designed and implemented scalable RESTful APIs and cloud-native systems using AWS, Docker, and Kubernetes, with strong expertise in MySQL/Postgres, MongoDB, and Redis. I follow test-driven and SOLID practices (JUnit, Mockito, REST Assured), automate CI/CD pipelines, and implement observability and fault-tolerance to ensure reliable production uptime. Seeking full-time back-end roles where I can drive automation, containerization, and cloud best practices to deliver maintainable, production-ready systems.
                         </p>
                         <div className="hero-actions">
                             <a className="btn btn-projects" href="/projects">
@@ -130,7 +130,9 @@ export function HomePage(): JSX.Element {
                     </div>
                 </div>
             </section>
-
+            <div className="hero-title">
+                <h3>Technical Skills</h3>
+            </div>
             <Skills />
         </>
     )

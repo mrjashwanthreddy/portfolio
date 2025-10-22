@@ -17,9 +17,9 @@
     inset: 0;
     pointer-events: none;
     z-index: 0;
-    /* stronger purple glow concentrated around the photo, but feathered into white */
-    background: radial-gradient(780px 380px at 84% 20%, rgba(172,0,255,0.28), rgba(107,0,217,0.22) 30%, rgba(107,0,217,0.12) 50%, transparent 68%),
-                linear-gradient(90deg, rgba(255,255,255,0.0) 0%, rgba(172,0,255,0.12) 35%, rgba(172,0,255,0.18) 100%);
+    /* green glow concentrated around the photo, feathered into white to match site theme */
+    background: radial-gradient(780px 380px at 84% 20%, rgba(163,196,138,0.28), rgba(184,211,155,0.22) 30%, rgba(184,211,155,0.12) 50%, transparent 68%),
+                linear-gradient(90deg, rgba(255,255,255,0.0) 0%, rgba(163,196,138,0.12) 35%, rgba(163,196,138,0.18) 100%);
     border-radius: inherit;
 }
 
@@ -36,49 +36,78 @@
 /* subtle tweak for the hero photo rim to emphasize purple */
 .card-shell.hero-gradient .hero-photo {
     border-color: rgba(255,255,255,0.92);
-    box-shadow: 0 12px 36px rgba(107,0,217,0.18), 0 4px 12px rgba(0,0,0,0.06);
+    box-shadow: 0 12px 36px rgba(163,196,138,0.18), 0 4px 12px rgba(0,0,0,0.06);
 }
 
 /* Skills section: blended white + purple with gentle elevation */
 .skills-section {
     position: relative;
-    background: linear-gradient(135deg, rgba(172,0,255,0.22) 0%, rgba(255,255,255,0.92) 40%, rgba(107,0,217,0.20) 100%);
+    /* make the section itself transparent so individual cards get their own backdrop */
+    background: transparent;
     border-radius: 16px;
-    box-shadow: 0 20px 44px rgba(11,19,40,0.06);
+    box-shadow: none;
     color: #111827;
 }
 .skills-section::before {
-    content: '';
-    position: absolute;
-    left: -8%;
-    top: -28%;
-    width: 62%;
-    height: 150%;
-    background: radial-gradient(circle at 12% 18%, rgba(172,0,255,0.18), rgba(107,0,217,0.12) 36%, transparent 65%);
-    pointer-events: none;
-    z-index: 0;
-    border-radius: 50%;
+    display: none; /* remove section-level purple blob */
 }
 .skills-inner { z-index: 1; position: relative; }
 
-/* make the skill chips match the purple accent while keeping readable text */
+/* Per-card backdrop for each skill-category using the green blend instead of purple */
+.skill-category {
+    position: relative; /* allow pseudo-element */
+    background: transparent; /* card surface is visually provided by ::before */
+    padding: 12px; /* keep internal spacing */
+    border-radius: 10px;
+    overflow: visible;
+}
+
+.skill-category::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    border-radius: 10px;
+    pointer-events: none;
+    /* green radial + white card surface using the requested green palette */
+    background: radial-gradient(520px 240px at 84% 18%, rgba(163,196,138,0.22), rgba(184,211,155,0.18) 28%, rgba(184,211,155,0.10) 48%, transparent 66%),
+                linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,255,255,0.96));
+    box-shadow: 0 10px 24px rgba(11,19,40,0.08);
+    border: 1px solid rgba(11,19,40,0.04);
+    transition: box-shadow .2s ease, transform .2s ease;
+}
+
+/* ensure category content sits above the decorative backdrop */
+.skill-category > * { position: relative; z-index: 1; }
+
+/* skill chips: use a green gradient instead of purple */
 .skill-item {
-    background: linear-gradient(90deg, rgba(107,0,217,0.98), rgba(172,0,255,0.98));
+    background: linear-gradient(90deg, rgba(120,170,80,0.98), rgba(163,196,138,0.98));
     color: #fff;
-    box-shadow: 0 8px 22px rgba(107,0,217,0.12);
+    box-shadow: 0 8px 22px rgba(84,140,66,0.12);
     padding: 10px 12px; /* slightly more padding for visual weight */
+    border-radius: 6px;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* add transitions for hover animation (no color changes) */
+    transition: transform 220ms ease, box-shadow 220ms ease;
 }
 .skill-item .skill-icon { color: rgba(255,255,255,0.96); }
-.skill-name { background: transparent; padding: 0; }
 
-/* slightly lift each category card for separation */
-.skill-category { background: rgba(255,255,255,0.0); padding: 10px; border-radius: 10px; }
+/* hover lift should apply to the per-category backdrop */
+.skill-category:hover::before {
+    box-shadow: 0 16px 40px rgba(11,19,40,0.12);
+}
 
-/* responsive tweak: reduce purple intensity on very small screens to preserve readability */
+/* responsive: reduce green intensity on small screens */
 @media (max-width: 640px) {
-    .card-shell.hero-gradient::before { background: radial-gradient(460px 240px at 84% 12%, rgba(172,0,255,0.18), rgba(107,0,217,0.10) 30%, transparent 56%); }
-    .skills-section { background: linear-gradient(180deg, rgba(255,255,255,0.97), rgba(255,255,255,0.95)); }
-    .skill-item { background: linear-gradient(90deg, rgba(107,0,217,0.86), rgba(172,0,255,0.86)); }
+    .skill-category::before {
+        background: radial-gradient(320px 160px at 84% 12%, rgba(163,196,138,0.16), rgba(184,211,155,0.10) 28%, transparent 56%),
+                    linear-gradient(180deg, rgba(255,255,255,0.985), rgba(255,255,255,0.97));
+    }
+    .skill-item { background: linear-gradient(90deg, rgba(120,170,80,0.86), rgba(163,196,138,0.86)); }
 }
 
 /* Rich UI Button Styles */
@@ -225,9 +254,32 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    /* add transitions for hover animation (no color changes) */
+    transition: transform 220ms ease, box-shadow 220ms ease;
 }
 
-.skill-name { background: transparent; padding: 0; }
+/* smooth icon transform on hover */
+.skill-item .skill-icon {
+    transition: transform 220ms ease;
+}
+
+/* hover: subtle lift + deeper shadow + icon scale; colors unchanged */
+.skill-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 34px rgba(11,19,40,0.12);
+}
+
+.skill-item:hover .skill-icon {
+    transform: scale(1.12) translateY(-1px);
+}
+
+/* respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .skill-item, .skill-item .skill-icon {
+        transition: none !important;
+        transform: none !important;
+    }
+}
 
 /* Add spacing between the hero card and the skills section */
 .card-shell + .skills-section {
@@ -251,3 +303,22 @@
     margin: 0 0 8px;
 }
 
+/* Add spacing between fixed navbar and hero on the homepage only */
+.home-hero {
+    margin-top: calc(var(--navbar-height) + 1px);
+}
+
+@media (max-width: 500px) {
+    .home-hero {
+        margin-top: calc(var(--navbar-height) + 1px);
+    }
+}
+
+.hero-title {
+    /*position: relative;*/
+    /*min-height: var(--hero-photo-width);*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: x-large;
+}
