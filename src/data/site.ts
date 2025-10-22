@@ -31,6 +31,7 @@ export const projects: Project[] = [
         title: 'Payment Service Module',
         slug: 'payment-service-module',
         description: [
+            'Migrated on-premise application to AWS improving scalability and high availability',
             'Migrated on-premise applications to AWS improving scalability by 35%.',
             'Implemented EC2 to S3 workflows with MFT integration for external systems using shell scripting.',
             'Completed Spring Boot enterprise training and delivered POC applications that demonstrate back-end skills.'

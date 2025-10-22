@@ -16,7 +16,8 @@ export function Navbar() {
         <NavLink to="/experience">Experience</NavLink>
         <NavLink to="/projects">Projects</NavLink>
         <NavLink to="/contact">Contact Me</NavLink>
-        <a href={profile.resumeUrl} download>Resume</a>
+        {/* route to the Resume page which shows a preview image and download button */}
+        <NavLink to="/resume">Resume</NavLink>
       </nav>
     </header>
   )

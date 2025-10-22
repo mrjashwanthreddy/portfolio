@@ -1,9 +1,10 @@
 import { ProjectCard } from './ProjectCard'
 import { projects } from '../../data/site'
+import './project.css'
 
 export function ProjectsPage() {
   return (
-    <section className="section-dark">
+    <section className="section-dark projects-section">
       <h1>Projects</h1>
       <p className="section-subtitle"></p>
       <div className="projects-grid">

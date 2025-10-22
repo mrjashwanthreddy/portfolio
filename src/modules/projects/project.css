@@ -1,0 +1,65 @@
+.section-dark h1 {
+    color: #ffffff;
+}
+
+/* Remove the white/gradient card background specifically for the Projects page while
+   preserving all other styles. We added `projects-section` on the section element. */
+.projects-section {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+.projects-section::before {
+    display: none !important;
+}
+
+/* Per-card white backdrop with purple blend for each project tile.
+   This creates a decorative white card behind each individual .project-tile
+   using a pseudo element so the effect applies per-card (not the whole section).
+   Scoped under .projects-section and .section-dark to avoid affecting other areas. */
+.projects-section .project-tile,
+.section-dark .project-tile {
+    /* ensure the tile can position its decorative pseudo element */
+    position: relative;
+    background: transparent !important; /* keep content surface transparent, backdrop is provided by ::before */
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.projects-section .project-tile::before,
+.section-dark .project-tile::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0; /* sit behind the tile content */
+    border-radius: 12px;
+    pointer-events: none;
+    /* white card surface with subtle purple glow (radial + linear) */
+    background: radial-gradient(520px 240px at 84% 18%, rgba(172,0,255,0.22), rgba(107,0,217,0.18) 28%, rgba(107,0,217,0.10) 48%, transparent 66%),
+                linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,255,255,0.96));
+    box-shadow: 0 10px 24px rgba(11,19,40,0.08);
+    border: 1px solid rgba(11,19,40,0.04);
+    transition: box-shadow .2s ease, transform .2s ease;
+}
+
+/* keep all tile children above the decorative backdrop */
+.projects-section .project-tile > *,
+.section-dark .project-tile > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* hover lift should apply to the whole tile including the backdrop */
+.projects-section .project-tile:hover::before,
+.section-dark .project-tile:hover::before {
+    box-shadow: 0 16px 40px rgba(11,19,40,0.12);
+}
+
+/* responsive: reduce purple intensity on small screens to preserve readability */
+@media (max-width: 640px) {
+    .projects-section .project-tile::before,
+    .section-dark .project-tile::before {
+        background: radial-gradient(320px 160px at 84% 12%, rgba(172,0,255,0.16), rgba(107,0,217,0.10) 28%, transparent 56%),
+                    linear-gradient(180deg, rgba(255,255,255,0.985), rgba(255,255,255,0.97));
+    }
+}

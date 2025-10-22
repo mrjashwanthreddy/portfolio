@@ -1,0 +1,68 @@
+/* tuned purple accents used elsewhere to provide consistent visual language */
+:root {
+    --accent-purple: #ac00ff;
+    --accent-purple-strong: #6b00d9;
+}
+
+/* Section card: mostly white surface with a purple glow behind it (decorative only) */
+.section-card {
+    position: relative; /* anchor for the decorative pseudo element */
+    padding: 28px;
+    border-radius: 14px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,255,255,0.96));
+    overflow: visible;
+}
+
+.section-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    /* purple glow concentrated toward the right/top to match other pages */
+    background: radial-gradient(720px 320px at 84% 20%, rgba(172,0,255,0.28), rgba(107,0,217,0.22) 30%, rgba(107,0,217,0.12) 50%, transparent 68%),
+                linear-gradient(90deg, rgba(255,255,255,0.0) 0%, rgba(172,0,255,0.12) 35%, rgba(172,0,255,0.16) 100%);
+    border-radius: inherit;
+}
+
+/* ensure section content sits above the decorative background */
+.section-card * { position: relative; z-index: 1; }
+
+/* timeline layout: keep simple spacing so we don't change structure */
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    z-index: 1; /* above pseudo element */
+}
+
+/* Experience card: white elevated card to sit on the purple-blended section */
+.exp-card {
+    /* match project card visuals */
+    background: #fff;
+    color: var(--text, #111827);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.12);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+    padding: 20px;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.exp-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.18);
+}
+
+/* small responsive tweak: reduce purple intensity on very small screens */
+@media (max-width: 640px) {
+    .section-card::before {
+        background: radial-gradient(460px 240px at 84% 12%, rgba(172,0,255,0.18), rgba(107,0,217,0.10) 30%, transparent 56%);
+    }
+}
+
+/* Preserve the existing h1 color rule */
+h1 {
+    color: #ffffff;
+    font-size: 36px;
+}

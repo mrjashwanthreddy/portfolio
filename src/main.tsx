@@ -9,6 +9,7 @@ import {ProjectsPage} from './modules/projects/ProjectsPage'
 import {ProjectDetail} from './modules/projects/ProjectDetail'
 import {ExperiencePage} from './modules/experience/ExperiencePage'
 import {ContactPage} from './modules/contact/ContactPage'
+import {ResumePage} from './modules/resume/ResumePage'
 
 const router = createBrowserRouter([
     {
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
             {path: 'projects/:slug', element: <ProjectDetail/>},
             {path: 'experience', element: <ExperiencePage/>},
             {path: 'contact', element: <ContactPage/>},
+            {path: 'resume', element: <ResumePage/>},
         ],
     },
 ])
