@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 40px 16px;
+  padding: 12px 12px;
   /* set resume page background back to the pastel blue used earlier (only this page) */
   background: transparent;
   position: relative;
@@ -58,8 +58,8 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: linear-gradient(90deg, #6b00d9 0%, #ac00ff 100%);
-  color: #fff;
+  background: linear-gradient(90deg, #ffffff 0%, #ffffff 100%);
+  color: #b2a900; /* taken from .skill-item .skill-icon in about.css */
   padding: 12px 20px;
   border-radius: 999px;
   font-weight: 700;

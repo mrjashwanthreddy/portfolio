@@ -10,6 +10,7 @@ import {ProjectDetail} from './modules/projects/ProjectDetail'
 import {ExperiencePage} from './modules/experience/ExperiencePage'
 import {ContactPage} from './modules/contact/ContactPage'
 import {ResumePage} from './modules/resume/ResumePage'
+import {AboutPage} from './modules/about/AboutPage'
 
 const router = createBrowserRouter([
     {
@@ -17,6 +18,7 @@ const router = createBrowserRouter([
         element: <AppLayout/>,
         children: [
             {index: true, element: <HomePage/>},
+            {path: 'about', element: <AboutPage/>},
             {path: 'projects', element: <ProjectsPage/>},
             {path: 'projects/:slug', element: <ProjectDetail/>},
             {path: 'experience', element: <ExperiencePage/>},

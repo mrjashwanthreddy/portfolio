@@ -66,3 +66,28 @@ h1 {
     color: #ffffff;
     font-size: 36px;
 }
+
+.exp-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    width: 100%;
+}
+.exp-title-row h3 {
+    font-size: 1.13rem;
+    font-weight: 600;
+    margin: 0;
+    color: #2d1e4a;
+    flex: 1 1 auto;
+    white-space: pre-line;
+}
+.exp-period-loc {
+    font-size: 1rem;
+    color: #6b00d9;
+    font-weight: 500;
+    margin-left: 24px;
+    white-space: nowrap;
+    text-align: right;
+    flex-shrink: 0;
+}

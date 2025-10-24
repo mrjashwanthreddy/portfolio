@@ -1,324 +1,132 @@
-/* tuned accent values for stronger purple dominance */
-:root {
-    --accent-purple: #ac00ff; /* richer purple */
-    --accent-purple-strong: #6b00d9; /* stronger deep purple */
-}
+/* Home page minimalist hero — uses the global site background */
 
-/* Hero card with subtle white -> purple blend */
-.card-shell.hero-gradient {
-    position: relative; /* for pseudo element */
-    /* keep a mostly white surface but allow purple to show through toward the visual side */
-    background: linear-gradient(180deg, rgba(255,255,255,0.94), rgba(255,255,255,0.92));
-    overflow: visible; /* allow purple glow to extend */
-}
-.card-shell.hero-gradient::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    z-index: 0;
-    /* green glow concentrated around the photo, feathered into white to match site theme */
-    background: radial-gradient(780px 380px at 84% 20%, rgba(163,196,138,0.28), rgba(184,211,155,0.22) 30%, rgba(184,211,155,0.12) 50%, transparent 68%),
-                linear-gradient(90deg, rgba(255,255,255,0.0) 0%, rgba(163,196,138,0.12) 35%, rgba(163,196,138,0.18) 100%);
-    border-radius: inherit;
-}
-
-/* ensure content above the pseudo element */
-.card-shell.hero-gradient .hero, .card-shell.hero-gradient .hero * { position: relative; z-index: 1; }
-
-/* refine hero text colors for contrast on the blended background */
-.card-shell.hero-gradient h1,
-.card-shell.hero-gradient p,
-.card-shell.hero-gradient .hero-actions a {
-    color: var(--text);
-}
-
-/* subtle tweak for the hero photo rim to emphasize purple */
-.card-shell.hero-gradient .hero-photo {
-    border-color: rgba(255,255,255,0.92);
-    box-shadow: 0 12px 36px rgba(163,196,138,0.18), 0 4px 12px rgba(0,0,0,0.06);
-}
-
-/* Skills section: blended white + purple with gentle elevation */
-.skills-section {
-    position: relative;
-    /* make the section itself transparent so individual cards get their own backdrop */
-    background: transparent;
-    border-radius: 16px;
-    box-shadow: none;
-    color: #111827;
-}
-.skills-section::before {
-    display: none; /* remove section-level purple blob */
-}
-.skills-inner { z-index: 1; position: relative; }
-
-/* Per-card backdrop for each skill-category using the green blend instead of purple */
-.skill-category {
-    position: relative; /* allow pseudo-element */
-    background: transparent; /* card surface is visually provided by ::before */
-    padding: 12px; /* keep internal spacing */
-    border-radius: 10px;
-    overflow: visible;
-}
-
-.skill-category::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    border-radius: 10px;
-    pointer-events: none;
-    /* green radial + white card surface using the requested green palette */
-    background: radial-gradient(520px 240px at 84% 18%, rgba(163,196,138,0.22), rgba(184,211,155,0.18) 28%, rgba(184,211,155,0.10) 48%, transparent 66%),
-                linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,255,255,0.96));
-    box-shadow: 0 10px 24px rgba(11,19,40,0.08);
-    border: 1px solid rgba(11,19,40,0.04);
-    transition: box-shadow .2s ease, transform .2s ease;
-}
-
-/* ensure category content sits above the decorative backdrop */
-.skill-category > * { position: relative; z-index: 1; }
-
-/* skill chips: use a green gradient instead of purple */
-.skill-item {
-    background: linear-gradient(90deg, rgba(120,170,80,0.98), rgba(163,196,138,0.98));
-    color: #fff;
-    box-shadow: 0 8px 22px rgba(84,140,66,0.12);
-    padding: 10px 12px; /* slightly more padding for visual weight */
-    border-radius: 6px;
-    font-size: 0.95rem;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    /* add transitions for hover animation (no color changes) */
-    transition: transform 220ms ease, box-shadow 220ms ease;
-}
-.skill-item .skill-icon { color: rgba(255,255,255,0.96); }
-
-/* hover lift should apply to the per-category backdrop */
-.skill-category:hover::before {
-    box-shadow: 0 16px 40px rgba(11,19,40,0.12);
-}
-
-/* responsive: reduce green intensity on small screens */
-@media (max-width: 640px) {
-    .skill-category::before {
-        background: radial-gradient(320px 160px at 84% 12%, rgba(163,196,138,0.16), rgba(184,211,155,0.10) 28%, transparent 56%),
-                    linear-gradient(180deg, rgba(255,255,255,0.985), rgba(255,255,255,0.97));
-    }
-    .skill-item { background: linear-gradient(90deg, rgba(120,170,80,0.86), rgba(163,196,138,0.86)); }
-}
-
-/* Rich UI Button Styles */
-.btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 12px 24px;
-    border-radius: 12px;
-    font-weight: 600;
-    font-size: 16px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    border: 2px solid;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    position: relative;
-    overflow: hidden;
-}
-
-.btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-    transition: left 0.5s ease;
-}
-
-.btn:hover::before {
-    left: 100%;
-}
-
-.btn-icon {
-    font-size: 20px;
-    transition: transform 0.3s ease;
-    color: inherit;
-}
-
-.btn:hover .btn-icon {
-    transform: scale(1.15) rotate(5deg);
-}
-
-/* Projects Button - Purple theme */
-.btn-projects {
-    background: linear-gradient(135deg, #ac00ff 0%, #6b00d9 100%);
-    color: #ffffff;
-    border-color: #ac00ff;
-}
-
-.btn-projects:hover {
-    background: linear-gradient(135deg, #6b00d9 0%, #5500b3 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(172, 0, 255, 0.4);
-}
-
-/* GitHub Button - Dark theme */
-.btn-github {
-    background: linear-gradient(135deg, #24292e 0%, #1a1d21 100%);
-    color: #ffffff;
-    border-color: #24292e;
-}
-
-.btn-github:hover {
-    background: linear-gradient(135deg, #1a1d21 0%, #0d1117 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(36, 41, 46, 0.5);
-}
-
-/* LinkedIn Button - LinkedIn Blue theme */
-.btn-linkedin {
-    background: linear-gradient(135deg, #0077b5 0%, #005885 100%);
-    color: #ffffff;
-    border-color: #0077b5;
-}
-
-.btn-linkedin:hover {
-    background: linear-gradient(135deg, #005885 0%, #004060 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 119, 181, 0.5);
-}
-
-/* ensure hero action buttons show white text even when other rules target links */
-.card-shell.hero-gradient .hero-actions .btn {
-    color: #ffffff;
-}
-.card-shell.hero-gradient .hero-actions .btn span {
-    color: inherit; /* ensure inner text inherits the anchor color */
-}
-
-/* Active state for all buttons */
-.btn:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-}
-
-/* Responsive button styles */
-@media (max-width: 640px) {
-    .btn {
-        padding: 10px 18px;
-        font-size: 14px;
-        gap: 8px;
-    }
-
-    .btn-icon {
-        font-size: 18px;
-    }
-}
-
-/* removed duplicate override that reverted purple styling; preserve layout and spacing below */
-.skills-inner {
-    max-width: 1000px;
-    margin: 0 auto;
-    z-index: 1; /* ensure it's above decorative pseudo elements */
-}
-
-.skills-grid {
+.home-landing {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 16px;
-    margin-top: 16px;
+    grid-template-columns: 2fr 1fr; /* expand left, shrink right */
+    min-height: 80%;
+    margin-top: var(--navbar-height);
+    align-items: center;
+    gap: 60px;
+    padding: 54px;
+    position: fixed;
+    width: 100vw;
+    left: 0;
+    right: 0;
 }
 
-.skill-category-title {
-    font-weight: 700;
-    margin-bottom: 8px;
-    color: #1e1e21;
+.expanded-left {
+    grid-column: 1 / 2;
+    width: 100%;
+    justify-self: stretch;
 }
 
-.skill-list {
-    list-style: none;
-    padding: 0;
+.most-right {
+    grid-column: 2 / 3;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.landing-inner {
+    max-width: 100%;
     margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
 }
 
-/* Keep the purple chip appearance from earlier .skill-item rules but ensure consistent sizing */
-.skill-item {
-    border-radius: 6px;
-    font-size: 0.95rem;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    /* add transitions for hover animation (no color changes) */
-    transition: transform 220ms ease, box-shadow 220ms ease;
+.eyebrow {
+    font-size: 18px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 6px;
 }
 
-/* smooth icon transform on hover */
-.skill-item .skill-icon {
-    transition: transform 220ms ease;
-}
-
-/* hover: subtle lift + deeper shadow + icon scale; colors unchanged */
-.skill-item:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 14px 34px rgba(11,19,40,0.12);
-}
-
-.skill-item:hover .skill-icon {
-    transform: scale(1.12) translateY(-1px);
-}
-
-/* respect reduced motion preferences */
-@media (prefers-reduced-motion: reduce) {
-    .skill-item, .skill-item .skill-icon {
-        transition: none !important;
-        transform: none !important;
-    }
-}
-
-/* Add spacing between the hero card and the skills section */
-.card-shell + .skills-section {
-    margin-top: 48px; /* increased spacing to push skills lower */
-}
-@media (min-width: 900px) {
-    .card-shell + .skills-section {
-        margin-top: 64px; /* more generous spacing on wide screens */
-    }
-}
-
-/* make the hero bio text slightly larger and more readable */
-.card-shell.hero-gradient .hero p {
-    font-size: 16px; /* user requested size */
-    line-height: 1.6; /* improve readability */
-    color: #111827; /* ensure good contrast on the gradient */
-    margin: 0 0 18px;
-}
-.card-shell.hero-gradient .hero p h2 {
-    font-size: 20px; /* keep heading larger than body but balanced */
+.hero-name {
     margin: 0 0 8px;
+    font-size: clamp(36px, 6vw, 68px);
+    line-height: 1.02;
+    font-weight: 800;
+    color: #0b1328;
+    white-space: nowrap;
 }
 
-/* Add spacing between fixed navbar and hero on the homepage only */
-.home-hero {
-    margin-top: calc(var(--navbar-height) + 1px);
+.hero-sub {
+    font-size: 18px;
+    color: #374151;
 }
 
-@media (max-width: 500px) {
-    .home-hero {
-        margin-top: calc(var(--navbar-height) + 1px);
-    }
+.cta-row { display: flex; gap: 12px; margin-top: 22px; flex-wrap: wrap; }
+
+/* Simple button style (scoped to Home only) */
+.home-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+  transition: transform .2s, box-shadow .2s, background .2s;
+  border: 2px solid transparent;
+  color: #fff;
+  background: #111827;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.home-btn-icon {
+  font-size: 20px;
+  transition: transform .2s;
+}
+.home-btn:hover .home-btn-icon {
+  transform: scale(1.15) rotate(5deg);
+}
+.home-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
 }
 
-.hero-title {
-    /*position: relative;*/
-    /*min-height: var(--hero-photo-width);*/
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: x-large;
+/* GitHub button styles */
+.home-btn-github {
+  background: linear-gradient(135deg, #24292e 0%, #1a1d21 100%);
+  color: #fff;
+  border-color: #24292e;
+}
+.home-btn-github:hover {
+  background: linear-gradient(135deg, #1a1d21 0%, #0d1117 100%);
+}
+
+/* LinkedIn button styles */
+.home-btn-linkedin {
+  background: linear-gradient(135deg, #0077b5 0%, #005885 100%);
+  color: #fff;
+  border-color: #0077b5;
+}
+.home-btn-linkedin:hover {
+  background: linear-gradient(135deg, #005885 0%, #004060 100%);
+}
+
+.landing-right { display: flex; align-items: center; justify-content: center; }
+
+.landing-photo {
+    width: clamp(220px, 42vw, 420px);
+    height: clamp(220px, 42vw, 420px);
+    border-radius: 50%;
+    object-fit: cover;
+    border: 8px solid rgba(255,255,255,0.9);
+    box-shadow: 0 16px 46px rgba(0,0,0,0.25);
+    position: relative;
+}
+
+/* subtle outer ring */
+.landing-photo::after {
+    content: '';
+    position: absolute;
+    inset: -14px;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.7);
+}
+
+@media (max-width: 900px) {
+    .home-landing { grid-template-columns: 1fr; padding-top: 12px; position: static; }
+    .expanded-left, .most-right { width: 100%; justify-content: center; }
+    .hero-name { white-space: normal; }
 }
