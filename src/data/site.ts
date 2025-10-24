@@ -13,7 +13,7 @@ export type Experience = { company: string; role: string; period: string; summar
 
 export const profile = {
     name: 'Jashwanth Reddy Karumudi',
-    title: 'Software Engineer • Java / Spring Boot',
+    title: 'Software Engineer Java & Spring Boot Developer',
     // bio: 'Software Engineer with 3+ years building Java, Spring Boot, and microservice back-end systems on AWS. Passionate about automation, containerization, and cloud best practices.',
     bio: 'a backend-focused Software Engineer and Java Developer with 3+ years building high-performance Spring Boot microservices. I design and implement scalable RESTful APIs and cloud-native systems using AWS, Docker, and Kubernetes, with strong expertise in MySQL/Postgres, MongoDB, and Redis. I follow test-driven and SOLID practices (JUnit, Mockito, REST Assured), automate CI/CD pipelines, and implement observability and fault-tolerance to ensure reliable production uptime. Seeking full-time back-end roles where I can drive automation, containerization, and cloud best practices to deliver maintainable, production-ready systems.',
     location: 'Hyderabad, India',
@@ -80,6 +80,10 @@ export const experience: Experience[] = [
         period: 'Jan 2024 — Present · Hyderabad, India',
         summary: [
             'Managed OneSQ development as sole developer which led to 15% improvement in operational service and service qualification accuracy.',
+            'Developed REST APIs to retrieve service qualification information for networks in Australia for the given geographical address',
+            'Implemented and maintained RIO pipeline for seamless application build and deployment on AWS EC2.',
+            'Integrated reliable service qualification processes to enhance application performance and reliability.',
+            'Collaborated with cross-functional teams to gather requirements and deliver high quality software solutions.',
             'Achieved 40% reduction in customer escalations of incorrect service availability by implementing efficient address search by geocoding accuracy validation.',
             'Accomplished 30% growth for customer service optimization using REST calls, and multi-threading for faster response times.'
         ],
@@ -89,8 +93,10 @@ export const experience: Experience[] = [
         role: 'Java Developer',
         period: 'Dec 2021 — Dec 2023 · Hyderabad, India',
         summary: [
-            'Migrated on-premise applications to AWS improving scalability by 35%.',
             'Underwent a comprehensive training program and developed proof-of-concept applications using Spring Boot demonstrating proficiency in enterprise java development.',
+            'Migrated on-premise applications to AWS cloud which led to 35% improvement in system scalability and response times.',
+            'Integrated OSS components with Splunk monitoring and implemented security management within PSM on AWS infrastructure.',
+            'Migrated atomic job processing to scheduled cron jobs, improving batch processing efficiency by 25% using shell scripting and EC2 automation.',
             'Automated EC2 to S3 workflows with MFT integration for external systems using shell scripting.'
         ]
     },
