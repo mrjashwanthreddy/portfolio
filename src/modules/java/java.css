@@ -1,0 +1,194 @@
+/* Styles for the Java page with collapsible TOC */
+.java-page {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 16px;
+    height: calc(100vh - var(--navbar-height) - 48px); /* lock to viewport height */
+    overflow: hidden; /* prevent children from expanding page */
+}
+
+/* When sidebar is hidden, make content span full width */
+.java-page.toc-hidden {
+    grid-template-columns: 1fr;
+}
+
+.java-toc {
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 12px;
+    position: relative;
+    height: 100%; /* match grid row height */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* do not show scrollbar on left */
+}
+
+/* Scrollable body for TOC items below sticky header */
+.toc-body {
+    flex: 1 1 auto;
+    min-height: 0; /* allow flex child to shrink so overflow works */
+    overflow-y: auto;
+    padding-right: 4px; /* small gutter so shadowed scrollbar doesn't overlay text */
+}
+
+/* Collapsible section header (unstyled button) */
+.section-toggle {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    width: 100%;
+    background: transparent;
+    border: 0;
+    padding: 6px 4px;
+    text-align: left;
+    cursor: pointer;
+}
+
+.section-toggle .caret {
+    font-size: 14px; /* just the symbol, no box */
+}
+
+.section-toggle .title-text {
+    font-weight: 700; /* make section names bold */
+    font-size: 14px;
+}
+
+/* Ensure topic links inside sections stay normal weight */
+.java-toc a {
+    font-weight: 400;
+}
+
+/* Remove old section-header box styles if any (kept for backward compatibility) */
+.section-header {
+    all: unset;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Header inside TOC: contents toggle + search input side-by-side */
+.toc-header {
+    position: sticky;
+    top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: white;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+    z-index: 1;
+}
+
+.toc-search-input {
+    flex: 1 1 auto;
+    min-width: 0;
+    padding: 8px 10px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.toc-no-results {
+    font-size: 13px;
+    color: #666;
+    padding: 8px;
+}
+
+.java-toc h3 {
+    margin: 6px 0 10px;
+}
+
+.java-toc .section {
+    margin-bottom: 10px;
+}
+
+.java-toc .section-title {
+    font-weight: 700;
+    font-size: 14px;
+    margin: 8px 0 6px;
+}
+
+.java-toc a {
+    display: block;
+    padding: 6px 8px;
+    border-radius: 8px;
+    color: var(--text);
+    font-size: 14px;
+}
+
+.java-toc a.active,
+.java-toc a:hover {
+    background: #f4f6fb;
+}
+
+.java-article {
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    height: 100%; /* fill available vertical space */
+    overflow-y: auto; /* scroll only the right panel */
+}
+
+.java-article pre {
+    overflow: auto;
+}
+
+/* Toggle button (like the screenshot top-left) */
+.toc-toggle {
+    position: sticky; /* stick within the left column */
+    top: 8px;
+    display: inline-flex;
+    align-items: flex-start;
+    gap: 4px;
+    padding: 6px 10px;
+    border-radius: 8px;
+    background: #6a11cb;
+    color: white;
+    cursor: grab;
+    border: none;
+    font-weight: 600;
+}
+
+/* Prev/Next navigation at bottom of article */
+.article-nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+}
+
+.article-nav a,
+.article-nav button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    background: #f4f6fb;
+    color: #111;
+    border: 1px solid var(--border);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.article-nav a:hover,
+.article-nav button:hover {
+    background: #e9edf8;
+}
+
+.article-nav .spacer {
+    flex: 1;
+}
+
+@media (max-width: 900px) {
+    .java-page {
+        grid-template-columns: 1fr;
+    }
+}

@@ -18,6 +18,7 @@ export function Navbar() {
                 <NavLink to="/about">About</NavLink>
                 <NavLink to="/experience">Experience</NavLink>
                 <NavLink to="/projects">Projects</NavLink>
+                <NavLink to="/java">Java</NavLink>
                 {/* route to the Resume page which shows a preview image and download button */}
                 <NavLink to="/resume">Resume</NavLink>
                 <NavLink to="/contact">Contact Me</NavLink>

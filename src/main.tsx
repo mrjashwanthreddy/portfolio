@@ -11,6 +11,7 @@ import {ExperiencePage} from './modules/experience/ExperiencePage'
 import {ContactPage} from './modules/contact/ContactPage'
 import {ResumePage} from './modules/resume/ResumePage'
 import {AboutPage} from './modules/about/AboutPage'
+import JavaPage from './modules/java/JavaPage'
 
 const router = createBrowserRouter([
     {
@@ -24,6 +25,8 @@ const router = createBrowserRouter([
             {path: 'experience', element: <ExperiencePage/>},
             {path: 'contact', element: <ContactPage/>},
             {path: 'resume', element: <ResumePage/>},
+            {path: 'java', element: <JavaPage/>},
+            {path: 'java/:slug', element: <JavaPage/>},
         ],
     },
 ])
